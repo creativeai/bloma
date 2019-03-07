@@ -1,0 +1,31 @@
+.directEditor--viewport {
+  position: absolute;
+  pointer-events: none;
+  // border: 1px solid rgba(255, 255, 255, 0.75);
+
+  .directEditor--gridColumnMarker, .directEditor--gridRowMarker {
+    position: absolute;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.5);
+    &.is-module {
+      background: rgba(150, 150, 255, 0.75);
+      z-index: 1;
+    }
+  }
+
+  .directEditor--gridColumnMarker {
+    width: 1px;
+    left: 0;
+  }
+  .directEditor--gridRowMarker {
+    height: 1px;
+    top: 0;
+  }
+  
+}
+
+.directEditor--mask {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(29, 30, 31, 0.75);
+}

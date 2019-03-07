@@ -1,0 +1,8 @@
+.fontSwatchSwitcher {
+  display: flex;
+  flex-flow: row nowrap;
+
+  &--swatch {
+    margin-right: 5px;
+  }
+}

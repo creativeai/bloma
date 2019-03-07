@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="30px" viewBox="0 0 34 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" fill="#000000">
+            <path d="M20.9775391,20 L19.5595703,15.8857422 L13.6513672,15.8857422 L12.2226562,20 L9.75195312,20 L15.3486328,4.49902344 L17.9375,4.49902344 L23.5341797,20 L20.9775391,20 Z M16.5195312,7.31347656 L14.2636719,13.8662109 L18.9472656,13.8662109 L16.7021484,7.31347656 L16.5195312,7.31347656 Z" id="A"></path>
+            <rect id="Rectangle-5" fill-rule="nonzero" transform="translate(33.000000, 15.000000) rotate(-90.000000) translate(-33.000000, -15.000000) " x="18" y="14" width="30" height="2"></rect>
+            <rect id="Rectangle-5" fill-rule="nonzero" transform="translate(1.000000, 15.000000) rotate(-90.000000) translate(-1.000000, -15.000000) " x="-14" y="14" width="30" height="2"></rect>
+            <g id="Group-2" transform="translate(16.500000, 26.000000) rotate(90.000000) translate(-16.500000, -26.000000) translate(13.500000, 13.500000)" fill-rule="nonzero">
+                <rect id="Rectangle-4" x="2" y="3" width="2" height="19"></rect>
+                <polygon id="Triangle-2" points="3 0 6 4.8 0 4.8"></polygon>
+                <polygon id="Triangle-2" transform="translate(3.000000, 22.400000) scale(1, -1) translate(-3.000000, -22.400000) " points="3 20 6 24.8 0 24.8"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

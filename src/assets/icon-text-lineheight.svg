@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="36px" viewBox="0 0 30 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" fill="#000000">
+            <path d="M25.9775391,26 L24.5595703,21.8857422 L18.6513672,21.8857422 L17.2226562,26 L14.7519531,26 L20.3486328,10.4990234 L22.9375,10.4990234 L28.5341797,26 L25.9775391,26 Z M21.5195312,13.3134766 L19.2636719,19.8662109 L23.9472656,19.8662109 L21.7021484,13.3134766 L21.5195312,13.3134766 Z" id="A"></path>
+            <rect id="Rectangle-5" fill-rule="nonzero" x="0" y="-1.13686838e-13" width="30" height="2"></rect>
+            <rect id="Rectangle-5" fill-rule="nonzero" x="0" y="34" width="30" height="2"></rect>
+            <rect id="Rectangle-4" fill-rule="nonzero" x="4" y="9" width="2" height="19"></rect>
+            <polygon id="Triangle-2" fill-rule="nonzero" points="5 6 8 10.8 2 10.8"></polygon>
+            <polygon id="Triangle-2" fill-rule="nonzero" transform="translate(5.000000, 28.400000) scale(1, -1) translate(-5.000000, -28.400000) " points="5 26 8 30.8 2 30.8"></polygon>
+        </g>
+    </g>
+</svg>

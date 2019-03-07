@@ -1,0 +1,40 @@
+@import 'variables';
+
+.designEngine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 0 auto 0;
+  grid-template-areas:
+    'header header'
+    'sidebar content'
+    'footer footer';
+
+  .header {
+    grid-area: header;
+  }
+
+  .content {
+    // z-index: 1;
+    grid-area: content;
+    position: relative;
+    overflow-y: auto;
+
+    .panel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}

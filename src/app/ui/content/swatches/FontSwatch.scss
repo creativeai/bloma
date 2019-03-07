@@ -1,0 +1,38 @@
+@import 'variables';
+@import './Swatch';
+
+.fontSwatch {
+  @extend %swatch;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px;
+  color: rgba(#fff, 0.5);
+
+  &-enter {
+    opacity: 0;
+    &-active {
+      opacity: 1;
+      transition: opacity 0.15s ease;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+    &-active {
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+  }
+
+  &.is-transitioning,
+  &.is-retaining {
+    opacity: 0 !important;
+  }
+
+  &.is-selected {
+    background: $colorGreyLight;
+    border-color: $colorGreyLight;
+    color: rgba(#fff, 1);
+  }
+}

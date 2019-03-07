@@ -1,0 +1,49 @@
+@import 'variables';
+@import '~sass-svg-uri/svg-uri';
+
+.colorElementView {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+
+  &--colorContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    transition: background-image 0.15s ease;
+    background: transparent
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69"><path d="M66,14.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V51.66a3,3,0,0,0,3,3H14.33V66a3,3,0,0,0,3,3H66a3,3,0,0,0,3-3V17.33A3,3,0,0,0,66,14.33ZM6,48.66H6V6H48.66V48.66H6Z" style="fill: rgba(255,255,255,0.5)"/></svg>'
+      )
+      center center / auto 20px no-repeat;
+  }
+
+  &.is-selected {
+    background-color: $colorGreyLight;
+    border-color: #fff;
+
+    &:after {
+      background: transparent
+        svg-uri(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69"><path d="M66,14.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V51.66a3,3,0,0,0,3,3H14.33V66a3,3,0,0,0,3,3H66a3,3,0,0,0,3-3V17.33A3,3,0,0,0,66,14.33ZM6,48.66H6V6H48.66V48.66H6Z" style="fill: #fff"/></svg>'
+        )
+        center center / auto 20px no-repeat;
+    }
+  }
+}

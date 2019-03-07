@@ -1,0 +1,131 @@
+@import 'variables';
+
+@keyframes rotateForward {
+  0% {
+    transform: rotate(0deg) scale(0.85);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.85);
+  }
+}
+
+@keyframes rotateBackward {
+  0% {
+    transform: rotate(360deg) scale(0.85);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(0.85);
+  }
+}
+
+.welcomePanel {
+  align-items: center;
+
+  .pencilCircle {
+    display: block;
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &.circleOne {
+      width: 203px;
+      height: 203px;
+      animation-name: rotateForward;
+      animation-duration: 30s;
+    }
+
+    &.circleTwo {
+      width: 194px;
+      height: 209px;
+      animation-name: rotateBackward;
+      animation-duration: 20s;
+    }
+
+    &.circleThree {
+      width: 189px;
+      height: 197px;
+      animation-name: rotateForward;
+      animation-duration: 20s;
+    }
+  }
+
+  &--vendorLogo {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  &.panel-exit {
+    transform: scale(1);
+    opacity: 1;
+    animation: none !important;
+    &.panel-exit-active,
+    &.panel-exit-done {
+      transform: scale(1.5) !important;
+      opacity: 0;
+    }
+  }
+
+  h1 {
+    margin: 25px 0 10px 0;
+    font-family: $bodyFontStack;
+    font-weight: normal;
+    font-size: em(36px);
+    line-height: 1.2;
+  }
+
+  p.small,
+  p.small a {
+    margin: 0;
+    font-size: em(16px);
+    line-height: 1;
+    text-align: center;
+    color: rgba($colorPrimary, 0.5);
+  }
+
+  button {
+    display: block;
+    height: 40px;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: $radius;
+    background: $colorHighlightPrimary;
+    color: white;
+    font-family: $bodyFontStack;
+    font-weight: normal;
+    font-size: 14px;
+    box-shadow: 1px 1px 25px 0 rgba(42, 40, 119, 0.25);
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+  }
+
+  .mobileWarning {
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    padding: 25px;
+    font-size: 18px;
+    line-height: 1.4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    text-align: center;
+    color: white;
+  }
+}

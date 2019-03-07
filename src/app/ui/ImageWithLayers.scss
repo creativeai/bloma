@@ -1,0 +1,21 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.imageWithLayers {
+  position: relative;
+
+  .frame {
+    position: absolute;
+
+    img,
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.Text {
+      z-index: 100;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.colorSelector {
+  width: 100%;
+  .sketch-picker {
+    width: 100% !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 3px !important;
+    box-shadow: none !important;
+    overflow: hidden;
+
+    input {
+      width: 100% !important;
+      background: darken($colorGreyDark, 10%) !important;
+      border-radius: 2px !important;
+      box-shadow: none !important;
+      color: #fff;
+
+      &:focus {
+        outline: none;
+      }
+
+      ~ span {
+        color: rgba(#fff, 0.5) !important;
+      }
+    }
+
+    .flexbox-fix {
+      border-top: none !important;
+    }
+
+    .saturation-white div:nth-child(2) > div {
+      width: 5px !important;
+      height: 5px !important;
+      box-shadow: none !important;
+      background: rgba(#fff, 0.75);
+    }
+  }
+}

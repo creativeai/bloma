@@ -1,0 +1,8 @@
+.colorSwatchSwitcher {
+  display: flex;
+  flex-flow: row nowrap;
+
+  &--swatch {
+    margin-left: 5px;
+  }
+}

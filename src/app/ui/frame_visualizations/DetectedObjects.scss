@@ -1,0 +1,156 @@
+@import 'variables';
+
+.detectedObjectsVisualization {
+  position: absolute;
+
+  &.is-interactive:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #636af9;
+    mix-blend-mode: multiply;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .detectedObjectsVisualization--object {
+    position: absolute;
+    cursor: pointer;
+
+    &.is-highlighted .detectedObjectsVisualization--objectBoundary {
+      animation: ants 25s linear infinite;
+      animation-fill-mode: forwards;
+      stroke: #fff;
+      stroke-dasharray: 10, 5;
+    }
+
+    &.is-selected .detectedObjectsVisualization--objectBoundary,
+    &.is-selected.is-highlighted .detectedObjectsVisualization--objectBoundary {
+      stroke: rgba(#fff, 1);
+      stroke-dasharray: none;
+
+      rect {
+        fill: rgba(#fff, 0.5);
+        mix-blend-mode: overlay;
+      }
+    }
+
+    .has-selected-object &:not(.is-selected) {
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .has-selected-object
+      &:not(.is-selected)
+      .detectedObjectsVisualization--objectBoundary {
+      rect {
+        stroke: transparent;
+      }
+    }
+  }
+
+  .detectedObjectsVisualization--objectBoundary {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    g {
+      isolation: isolate;
+    }
+
+    rect {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2px;
+      transition: stroke 0.15s ease;
+    }
+  }
+
+  &.is-interactive {
+    .detectedObjectsVisualization--objectHandle {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background-color: #fff;
+      z-index: 1; // Above other things so that user can always interact
+
+      &:after {
+        content: '';
+        display: block;
+        width: 21px;
+        height: 21px;
+        margin: -7px auto auto -7px;
+      }
+
+      &.top {
+        top: -3px;
+      }
+
+      &.bottom {
+        bottom: -3px;
+      }
+
+      &.left {
+        left: -3px;
+      }
+
+      &.right {
+        right: -3px;
+      }
+
+      &.top.left,
+      &.bottom.right {
+        cursor: nwse-resize;
+      }
+
+      &.top.right,
+      &.bottom.left {
+        cursor: nesw-resize;
+      }
+    }
+  }
+
+  .detectedObjectsVisualization--focalPoint {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    transform: translate(-7px, -7px);
+    background-color: #fff;
+    z-index: 1; // Above other things so that user can always interact
+    border: 1px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 1);
+    transition: background-color 0.15s ease;
+
+    &.is-interactive {
+      animation: pulse 2s infinite;
+
+      &:hover {
+        background-color: rgba($colorHighlightPrimary, 1);
+        animation: none;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes ants {
+  to {
+    stroke-dashoffset: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
+  }
+}

@@ -1,0 +1,17 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.backgroundInputSelector {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  overflow: hidden;
+
+  &--content {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    flex: 1 1 auto;
+  }
+}

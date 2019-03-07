@@ -1,0 +1,198 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.basket {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+
+  .action-welcome & {
+    opacity: 0;
+  }
+
+  .action-formats & {
+    transition: opacity 0.5s ease-in;
+    opacity: 1;
+  }
+
+  &--btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 0 0 0 3px;
+    background: $colorGreyLight
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="20.14" viewBox="0 0 28 20.14"> <circle cx="2.21" cy="10.07" r="2.21" style="fill: #fff"/><circle cx="2.21" cy="2.21" r="2.21" style="fill: #fff"/> <circle cx="10.07" cy="17.93" r="2.21" style="fill: #fff"/><circle cx="2.21" cy="17.93" r="2.21" style="fill: #fff"/><circle cx="25.79" cy="2.21" r="2.21" style="fill: #fff"/><circle cx="10.07" cy="10.07" r="2.21" style="fill: #fff"/><circle cx="17.93" cy="2.21" r="2.21" style="fill: #fff"/><circle cx="25.79" cy="17.93" r="2.21" style="fill: #fff"/><circle cx="25.79" cy="10.07" r="2.21" style="fill: #fff"/><circle cx="17.93" cy="10.07" r="2.21" style="fill: #fff"/><circle cx="17.93" cy="17.93" r="2.21" style="fill: #fff"/><circle cx="10.07" cy="2.21" r="2.21" style="fill: #fff"/></svg>'
+      )
+      center center / 20px 20px no-repeat;
+    transition: background-color 0.15s ease;
+    box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.75);
+    text-indent: 999px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--dropdown {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    z-index: -1;
+    padding: 23px 65px 25px 25px;
+    background: $colorGreyDark;
+    border: 1px solid $colorGreyLight;
+    border-radius: 0 0 0 3px;
+    box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transform: scale(0.9);
+    transform-origin: top right;
+    transition: transform 0.25s ease, opacity 0.5s ease;
+    user-select: none;
+    pointer-events: none;
+
+    .is-active & {
+      transform: scale(1);
+      opacity: 1;
+      user-select: auto;
+      pointer-events: all;
+    }
+
+    .is-populated & {
+      width: 302px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: stretch;
+      padding: 15px 55px 15px 15px;
+    }
+
+    &:after {
+      content: 'No formats added';
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 8px;
+      color: rgba(#ffffff, 1);
+
+      .is-populated & {
+        display: none;
+      }
+    }
+  }
+
+  &--dropdownColumn {
+    width: 50%;
+    margin-bottom: 10px;
+
+    &:first-child .basket--formatCard {
+      margin-right: 10px;
+    }
+  }
+
+  &--formatCard {
+    position: relative;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 0 0 10px 0;
+    user-select: none;
+    background: $colorGreyLight;
+    overflow: visible;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-top: calc(var(--aspect-ratio, 1/2) * 100%);
+    }
+
+    &Inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 8px;
+      // border: 1px solid $colorGreyLighta;
+      font-family: $bodyFontStack;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 13px;
+      overflow: visible;
+    }
+
+    &Dimensions {
+      display: block;
+      color: rgba($colorBodyText, 1);
+    }
+
+    &Name {
+      color: rgba($colorBodyText, 0.5);
+    }
+
+    &SelectionCount {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(10px, -10px);
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+      background-color: $colorHighlightPrimary;
+      color: #000;
+    }
+
+    &SelectedRender {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .btn--export {
+    display: block;
+    height: 36px;
+    width: 100%;
+    padding-left: 10px;
+    z-index: 10;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    background: $colorHighlightPrimary
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="100.15" height="141.73" viewBox="0 0 100.15 141.73"><path d="M99.88,125.14H0v16.59H99.88ZM98.23,58.78a6.55,6.55,0,0,0-9.28,0L56.42,91.31V6.56a6.56,6.56,0,0,0-13.12,0V91.31L11.2,59.22A6.56,6.56,0,0,0,1.92,68.5l43.3,43.29c.15.15.31.3.48.44l.23.17.28.21.29.17.26.16.3.14.28.14.3.1.31.11.3.08.32.08.35,0,.29,0a7,7,0,0,0,1.29,0l.29,0,.34,0,.33-.08.3-.08.31-.11.29-.1.29-.14.29-.14.27-.16.29-.17.28-.21.23-.17a7.31,7.31,0,0,0,.69-.67l.23-.2,43.3-43.3a6.57,6.57,0,0,0,0-9.28" style="fill: #000"/></svg>'
+      )
+      95% center / 15px 15px no-repeat;
+    box-shadow: 1px 1px 25px 0 rgba($colorSecondary, 0.25);
+    overflow: hidden;
+    font-family: $bodyFontStack;
+    font-size: 12px;
+    color: black;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+
+    &:disabled {
+      opacity: 0;
+      user-select: none;
+      cursor: default;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

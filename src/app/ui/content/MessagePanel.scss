@@ -1,0 +1,22 @@
+@import 'variables';
+
+.messagePanel {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &.is-full-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $colorBackgroundDark;
+  }
+
+  &--message {
+    font-size: 20px;
+    color: #fff;
+  }
+}

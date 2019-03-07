@@ -1,0 +1,65 @@
+@import 'variables';
+
+$imageHandleSize: 7px;
+
+.imageEditor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.imageEditor--imageContainer {
+  position: absolute;
+
+  .imageWithLayers {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.imageEditor--handle {
+  position: absolute;
+  width: $imageHandleSize;
+  height: $imageHandleSize;
+  background-color: #fff;
+  z-index: 2;
+  &.top {
+    &.left {
+      cursor: nwse-resize;
+    }
+    &.center {
+      cursor: ns-resize;
+    }
+    &.right {
+      cursor: nesw-resize;
+    }
+  }
+  &.middle {
+    &.left {
+      cursor: ew-resize;
+    }
+    &.right {
+      cursor: ew-resize;
+    }
+  }
+  &.bottom {
+    &.left {
+      cursor: nesw-resize;
+    }
+    &.center {
+      cursor: ns-resize;
+    }
+    &.right {
+      cursor: nwse-resize;
+    }
+  }
+}
+.imageEditor--imageFrame {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.5);
+  cursor: move;
+  z-index: 2;
+}
+

@@ -1,0 +1,57 @@
+@import 'variables';
+@import '~sass-svg-uri/svg-uri';
+
+.imageElementView {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+
+  &.foreground_image {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid $colorGreyLight;
+    border-radius: 3px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  &.is-selected {
+    border: 1px solid $colorGreyHighlight;
+  }
+
+  &--imageContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    canvas {
+      position: absolute;
+      display: block;
+      max-width: 100%;
+      margin: 0;
+
+      .foreground_image & {
+        padding: 150px;
+      }
+    }
+  }
+
+  .filterSwatchSwitcher {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+  }
+}

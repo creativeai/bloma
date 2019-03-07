@@ -1,0 +1,36 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  // background: #0E0E0F url(./assets/header-background-temp.png) center center / 1440px auto no-repeat;
+  background: #0e0e0f;
+  text-align: center;
+
+  // &:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   z-index: -1;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 50px;
+  //   background-image: radial-gradient(50% 50%, rgba(14,14,15,0) 50%, rgba(14,14,15,1) 89%);
+  // }
+
+  &--title {
+    font-family: $bodyFontStack;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 50px;
+    text-shadow: 1px 1px 0 #000000;
+  }
+}

@@ -1,0 +1,17 @@
+.welcomePalette {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &Logo {
+    display: block;
+    width: 110px;
+    margin: 0 auto;
+  }
+}

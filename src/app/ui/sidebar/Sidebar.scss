@@ -1,0 +1,177 @@
+@import 'variables';
+@import 'btn';
+
+.sidebar {
+  // z-index: 1;
+  grid-area: sidebar;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  background: $colorHeader;
+  box-shadow: 0 0 4px 0 rgba($colorBlack, 0.12);
+
+  .logo {
+    flex-grow: 0;
+    display: block;
+    height: 20px;
+    width: auto;
+    margin: 18px auto 22px auto; // Unequal margins to visually center logo on x-height
+  }
+
+  .sidebar-tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+
+    .tabs-state {
+      position: absolute;
+      left: -10000px;
+
+      &.tab-actions:checked ~ .tabs .tab-actions-label,
+      &.tab-workflows:checked ~ .tabs .tab-workflows-label {
+        background-color: #fff;
+        cursor: default;
+
+        &:before {
+          background: $colorPurple;
+        }
+      }
+
+      &.tab-actions:checked ~ .tabs .tab-actions-panel,
+      &.tab-workflows:checked ~ .tabs .tab-workflows-panel {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+    }
+
+    .tabs {
+      flex-grow: 1;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+    }
+
+    .tab-links {
+      flex-grow: 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .tab {
+        flex-grow: 1;
+        max-height: 40px;
+        padding: 13px;
+        background-color: #eee;
+        border-top: 1px solid rgba($colorBorder, 0.5);
+        cursor: hand;
+        cursor: pointer;
+        user-select: none;
+        font-size: 13px;
+
+        &:hover {
+          background-color: #efefef;
+        }
+
+        // &:before {
+        //   content: '';
+        //   display: inline-block;
+        //   width: 8px;
+        //   height: 8px;
+        //   margin-right: 8px;
+        //   border-radius: 5px;
+        //   background: $colorDarkGrey;
+        //   // box-shadow: 0px 0px 1px 1px $colorPurple;
+        // }
+      }
+    }
+
+    .tab-content {
+      flex-grow: 1;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+
+      .tab-panel {
+        flex-grow: 1;
+        background-color: #fff;
+
+        &.tab-actions-panel {
+          align-items: stretch;
+        }
+      }
+    }
+  }
+
+  .workflows {
+    padding: 20px;
+  }
+}
+
+.workflow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba($colorBorder, 0.5);
+  border-radius: $radius;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.workflow-open .workflow-content {
+    display: block;
+  }
+
+  &.is-processing {
+    background-color: red;
+  }
+
+  .workflow-title {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 3;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .workflow-content {
+    display: none;
+    padding: 7px 13px 13px 13px;
+
+    select {
+      margin: 0 0 10px 0;
+    }
+
+    .slider {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      padding: 8px 0;
+
+      label {
+        flex-basis: 100%;
+        font-size: 12px;
+        line-height: 1;
+        padding: 0 0 5px 13px;
+      }
+
+      input {
+        flex-basis: 75%;
+        margin-right: 10px;
+      }
+
+      output {
+        flex-grow: 1;
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+}

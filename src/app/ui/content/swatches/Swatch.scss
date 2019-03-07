@@ -1,0 +1,66 @@
+@import 'variables';
+@import '~sass-svg-uri/svg-uri';
+
+%swatch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #151617;
+  border: 1px solid $colorGreyLight;
+  border-radius: 3px;
+  user-select: none;
+  color: #fff;
+  transition: border-color 0.15s ease;
+
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: 2px;
+  }
+
+  .removeSwatch {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: #b11125
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon id="Fill-1" points="17 0 10 7.01 3 0 0 3 7 10 0 17 3 20 10 13 17 20 20 17 12.99 10 20 3 17 0" style="fill: #fff; fill-rule: evenodd;"/></svg>'
+      )
+      center center / auto 6px no-repeat;
+    box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 16px;
+    text-indent: 999px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover .removeSwatch {
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  &.is-selected {
+    border-color: $colorGreyHighlight;
+  }
+
+  &.is-transition-active {
+    transition: left 1s ease-in-out 1s, top 1s ease-in-out 1s,
+      width 1s ease-in-out 1s, height 1s ease-in-out 1s,
+      opacity 1s ease-in-out 1s;
+  }
+}

@@ -1,0 +1,232 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.backgroundImageSelector {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  flex: 1 1 auto;
+  height: 100%;
+  color: rgba(#fff, 0.5);
+
+  &--imageInput,
+  &--dropzone {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    flex: 1 1 auto;
+    height: 100%;
+  }
+
+  &--dropzone {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: rgba(#000, 0.25);
+    // border: 2px dashed $colorGreyLight;
+    border-radius: 3px;
+    transition: background-color 0s ease-in;
+
+    &.is-populated {
+      min-width: 0;
+      min-height: 0;
+      background: transparent;
+      border: 2px dashed transparent;
+      justify-content: flex-start;
+    }
+  }
+
+  &--detecting {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      content: '';
+      z-index: 3;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      background: transparent
+        svg-uri(
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="4" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(227.904 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>'
+        );
+      box-shadow: 1px 1px 10px 0 rgba($colorSecondary, 0.25);
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  &--upload {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--presets {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    overflow: auto;
+  }
+  &--preset {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: rgba(#000, 0.4);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-color: rgba(#fff, 0.25);
+    }
+    &.is-selected {
+      border-color: rgba(#fff, 0.5);
+    }
+  }
+
+  &--addButton {
+    margin-top: 10px;
+    color: black !important;
+    background: $colorHighlightPrimary !important;
+
+    &:disabled {
+      height: 0 !important;
+    }
+  }
+
+  &--uploadBtn {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 10px;
+    padding: 0 10px;
+    label {
+      position: relative;
+      z-index: 3;
+      display: block;
+      width: 100%;
+      height: 34px;
+      padding: 0;
+      border: 1px solid rgba(white, 0.75);
+      border-radius: 3px;
+      background: transparent;
+      // svg-uri(
+      //   '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" viewBox="0 0 25 28"><line x1="12.5" y1="1.5" x2="12.5" y2="26.5" style="fill: none;stroke: #FFFFFF;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px"/><polyline points="1.5 12.9 12.5 1.5 23.5 12.9" style="fill: none;stroke: #FFFFFF;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px"/></svg>'
+      // )
+      // center center / 18px auto no-repeat;
+      text-align: center;
+      font-family: $bodyFontStack;
+      font-size: 12px;
+      line-height: 34px;
+      color: rgba(white, 0.75);
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        color: #50e3c2;
+        border-color: #50e3c2;
+      }
+
+      &:disabled {
+        opacity: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      position: absolute;
+      left: -999px;
+    }
+  }
+
+  &--objectList {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      user-select: none;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
+      margin-bottom: 5px;
+      background: rgba(#0e0e0f, 0.5);
+      border-radius: 3px;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+      font-size: 16px;
+      color: #fff;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.is-highlighted {
+        button {
+          color: #fff;
+          border-color: rgba(#fff, 0.25);
+        }
+      }
+
+      &.is-selected,
+      &.is-selected.is-highlighted {
+        button {
+          color: #fff;
+          border-color: rgba(#fff, 0.5);
+        }
+      }
+
+      .has-selected-object &:not(.is-selected) {
+        button {
+          color: rgba(#fff, 0.3);
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      text-align: left;
+      margin: 0;
+      padding: 10px 15px;
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      font-family: $bodyFontStack;
+      font-size: 12px;
+      color: rgba(#fff, 0.5);
+      cursor: pointer;
+      transition: color 0.15s ease;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import './Swatch';
+
+.filterSwatch {
+  @extend %swatch;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.5);
+
+  &-enter {
+    opacity: 0;
+    &-active {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+    &-active {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &.is-transitioning,
+  &.is-retaining {
+    opacity: 0 !important;
+  }
+
+  // .is-selected &.is-selected {
+  //   border-color: rgba(#fff, 0.5);
+  // }
+}

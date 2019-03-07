@@ -1,0 +1,147 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.foregroundSelector {
+  display: flex;
+  padding-bottom: 10px;
+
+  &--dropzone {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: rgba(#000, 0.2);
+    // border: 2px dashed $colorGreyLight;
+    border-radius: 3px;
+    transition: background-color 0s ease-in;
+
+    &.is-populated {
+      min-width: 0;
+      min-height: 0;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba($colorSecondary, 0.5);
+      transition: opacity 0.15s ease;
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 3;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      background: transparent
+        svg-uri(
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><circle cx="50" cy="50" fill="none" stroke="#ffffff" stroke-width="4" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(227.904 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>'
+        );
+      box-shadow: 1px 1px 10px 0 rgba($colorSecondary, 0.25);
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .has-image & {
+      &:before,
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--presets {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    overflow: auto;
+  }
+  &--preset {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: rgba(#000, 0.4);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-color: rgba(#fff, 0.25);
+    }
+    &.is-selected {
+      border-color: rgba(#fff, 0.5);
+    }
+  }
+
+  &--uploadBtn {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 10px;
+
+    label {
+      position: relative;
+      z-index: 3;
+      display: block;
+      height: 34px;
+      margin: 0 10px;
+      padding: 0 10px;
+      border: 1px solid rgba(#fff, 0.5);
+      border-radius: 3px;
+      background: transparent;
+      // svg-uri(
+      //   '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" viewBox="0 0 25 28"><line x1="12.5" y1="1.5" x2="12.5" y2="26.5" style="fill: none;stroke: #FFFFFF;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px"/><polyline points="1.5 12.9 12.5 1.5 23.5 12.9" style="fill: none;stroke: #FFFFFF;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px"/></svg>'
+      // )
+      // center center / 18px auto no-repeat;
+      text-align: center;
+      font-family: $bodyFontStack;
+      font-size: 12px;
+      line-height: 34px;
+      color: rgba(#fff, 0.5);
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        color: rgba(#fff, 1);
+        border-color: rgba(#fff, 1);
+      }
+
+      &:disabled {
+        opacity: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      position: absolute;
+      left: -999px;
+    }
+  }
+}

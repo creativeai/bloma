@@ -1,0 +1,160 @@
+@import 'variables';
+@import '~sass-svg-uri/svg-uri';
+
+.inputPanel {
+  height: 100vh;
+  padding: 5vw;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  background: $colorBackgroundDark;
+
+  &--elements {
+    width: 100%;
+    max-width: 770px;
+    position: relative;
+  }
+
+  &--element {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      opacity 0.5s ease-out;
+
+    &Content {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform-origin: 0 0;
+      background: $colorBackgroundDark;
+      pointer-events: initial;
+    }
+
+    .hierarchyCounter {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      transform-origin: top right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $colorGreyLight;
+      color: white;
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    &.text {
+      &:after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="20 0 12 0 8 0 0 0 0 4 8 4 8 20 12 20 12 4 20 4 20 0" style="fill: #555657"/></svg>'
+          )
+          center center / auto 16px no-repeat;
+        transition: background-image 0.15s ease;
+      }
+      &.is-selected {
+        &:after {
+          background: transparent
+            svg-uri(
+              '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="20 0 12 0 8 0 0 0 0 4 8 4 8 20 12 20 12 4 20 4 20 0" style="fill: #fff"/></svg>'
+            )
+            center center / auto 16px no-repeat;
+        }
+      }
+    }
+
+    &.background_image {
+      &:after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+        transition: background-image 0.15s ease;
+
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69"><path d="M66,14.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V51.66a3,3,0,0,0,3,3H14.33V66a3,3,0,0,0,3,3H66a3,3,0,0,0,3-3V17.33A3,3,0,0,0,66,14.33ZM6,48.66H6V6H48.66V48.66H6Z" style="fill: rgba(255,255,255,0.5)"/></svg>'
+          )
+          center center / auto 20px no-repeat;
+      }
+
+      &.is-selected:after {
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69"><path d="M66,14.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V51.66a3,3,0,0,0,3,3H14.33V66a3,3,0,0,0,3,3H66a3,3,0,0,0,3-3V17.33A3,3,0,0,0,66,14.33ZM6,48.66H6V6H48.66V48.66H6Z" style="fill: #fff"/></svg>'
+          )
+          center center / auto 20px no-repeat;
+      }
+    }
+
+    &.foreground_image {
+      &:after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+        transition: background-image 0.15s ease;
+
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="79" height="79" viewBox="79"><g><path d="M76,24.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V29L15.29,15,34.86,33l8.72-8L54.66,35.17V30.33H73V73H30.33V54.66H51.66a2.93,2.93,0,0,0,1.7-.53L15.29,19,0,33.1l0,0V51.66a3,3,0,0,0,3,3H24.33V76a3,3,0,0,0,3,3H76a3,3,0,0,0,3-3V27.33A3,3,0,0,0,76,24.33Z" style="fill: #434648"/><polygon points="37.07 35.03 54.66 51.25 54.66 39.25 43.58 29.04 37.07 35.03" style="fill: #434648"/></g><path d="M34.93,8.89A6.07,6.07,0,1,0,41,15,6.07,6.07,0,0,0,34.93,8.89Zm0,10.13A4.07,4.07,0,1,1,39,15,4.06,4.06,0,0,1,34.93,19Z" style="fill: #434648"/></svg>'
+          )
+          center center / auto 20px no-repeat;
+      }
+
+      &.is-selected:after {
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="79" height="79" viewBox="79"><g><path d="M76,24.33H54.66V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V29L15.29,15,34.86,33l8.72-8L54.66,35.17V30.33H73V73H30.33V54.66H51.66a2.93,2.93,0,0,0,1.7-.53L15.29,19,0,33.1l0,0V51.66a3,3,0,0,0,3,3H24.33V76a3,3,0,0,0,3,3H76a3,3,0,0,0,3-3V27.33A3,3,0,0,0,76,24.33Z" style="fill: #fff"/><polygon points="37.07 35.03 54.66 51.25 54.66 39.25 43.58 29.04 37.07 35.03" style="fill: #fff"/></g><path d="M34.93,8.89A6.07,6.07,0,1,0,41,15,6.07,6.07,0,0,0,34.93,8.89Zm0,10.13A4.07,4.07,0,1,1,39,15,4.06,4.06,0,0,1,34.93,19Z" style="fill: #fff"/></svg>'
+          )
+          center center / auto 20px no-repeat;
+      }
+    }
+
+    opacity: 0;
+    &-enter,
+    &-appear {
+      &-active,
+      &-done {
+        opacity: 1;
+      }
+    }
+    &.is-entered {
+      opacity: 1;
+    }
+
+    &-exit {
+      opacity: 1;
+      &-active,
+      &-done {
+        opacity: 0;
+      }
+    }
+  }
+}

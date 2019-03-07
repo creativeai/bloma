@@ -1,0 +1,27 @@
+.btn {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 15px 19px;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  background: $colorPurple;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba($colorWhite, 1);
+
+  &--full {
+    display: block;
+    width: 100%;
+  }
+
+  &--secondary {
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid rgba($colorPrimary, 0.5);
+    color: rgba($colorPrimary, 0.5);
+  }
+}

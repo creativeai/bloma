@@ -1,0 +1,273 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.formatsPanel {
+  align-items: flex-start;
+
+  &--formats {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 230px 40px 80px 40px;
+  }
+
+  &--custom {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    margin-bottom: 80px;
+    border-bottom: 1px solid rgba(#555657, 0.5);
+
+    h2 {
+      padding-bottom: 10px;
+    }
+
+    &Card {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      position: relative;
+      width: 280px;
+      height: 210px;
+      opacity: 1;
+      transition: opacity 0.15s ease;
+      user-select: none;
+      font-size: 12px;
+      line-height: 16px;
+      color: #fff;
+
+      &:before {
+        display: block;
+        content: '';
+        width: 100%;
+        padding-top: calc(var(--aspect-ratio, 1/2) * 100%);
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: transparent
+          svg-uri(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1536" viewBox="0 0 1536 1536"><circle style="fill: #fff" stroke="#{inline-color($colorHighlightPrimary)}" stroke-width="2" cx="768" cy="768" r="768"/><path style="fill: #{inline-color($colorHighlightPrimary)}" d="M1284,606q0-28-18-46l-91-90q-19-19-45-19t-45,19L677,877,451,651q-19-19-45-19t-45,19l-91,90q-18,18-18,46,0,27,18,45l362,362q19,19,45,19,27,0,46-19l543-543Q1284,633,1284,606Z"/></svg>'
+          )
+          top 15px right 15px / 16px 16px no-repeat;
+        border: 1px solid transparent;
+        opacity: 0;
+      }
+
+      &.is-selected:after,
+      &.is-selected:hover:after {
+        opacity: 1;
+      }
+
+      &Inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 17px 18px;
+        background: rgba(#4a4a4a, 0.1);
+        border: 1px solid $colorGreyLight;
+        transition: border-color 0.15s ease;
+        overflow: visible;
+
+        .is-selected & {
+          background: $colorGreyLight;
+        }
+
+        // &:hover {
+        //   border: 1px solid $colorGreyLight;
+        // }
+
+        // .is-selected:hover & {
+        //   border: 1px solid $colorGreyLight;
+        // }
+      }
+
+      &Dimensions {
+        display: block;
+      }
+
+      &Name {
+        color: rgba($colorBodyText, 0.5);
+      }
+    }
+
+    &Inputs {
+      margin-left: 40px;
+    }
+  }
+
+  .inputGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 165px;
+    height: 36px;
+    margin-bottom: 10px;
+
+    input {
+      display: inline-block;
+      position: relative;
+      width: 130px;
+      height: 36px;
+      margin: 0 0 10px 0;
+      background: transparent;
+      border: 1px solid #555657;
+      border-right: none;
+      border-radius: 3px 0 0 3px;
+      font-family: $bodyFontStack;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    label {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      margin: 0 0 10px 0;
+      background: #2e2f30;
+      border: 1px solid #555657;
+      border-radius: 0 3px 3px 0;
+      font-family: $bodyFontStack;
+      font-size: 14px;
+      line-height: 36px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+
+  &--btnAddFormat {
+    display: block;
+    width: 165px;
+    height: 36px;
+    padding: 0 12px;
+    background: $colorHighlightPrimary;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
+    font-family: $bodyFontStack;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &--cardGroupWrapper {
+    width: 50%;
+    min-width: 560px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  &--cardGroup {
+    width: 535px;
+    flex: 0 0 535px;
+    columns: 165px;
+    column-count: 3;
+    column-gap: 20px;
+    margin-bottom: 40px;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    &Title {
+      column-span: all;
+      width: 100%;
+      padding: 0 0 20px 0;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: $colorBodyText;
+      text-align: left;
+    }
+  }
+
+  &--card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+    user-select: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    color: #fff;
+
+    &:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-top: calc(var(--aspect-ratio, 1/2) * 100%);
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent
+        svg-uri(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1536" viewBox="0 0 1536 1536"><circle style="fill: #{inline-color($colorHighlightPrimary)}" stroke="#{inline-color($colorHighlightPrimary)}" stroke-width="2" cx="768" cy="768" r="768"/><path style="fill: #{inline-color($colorGreyDark)}" d="M1284,606q0-28-18-46l-91-90q-19-19-45-19t-45,19L677,877,451,651q-19-19-45-19t-45,19l-91,90q-18,18-18,46,0,27,18,45l362,362q19,19,45,19,27,0,46-19l543-543Q1284,633,1284,606Z"/></svg>'
+        )
+        top 15px right 15px / 16px 16px no-repeat;
+      border: 1px solid transparent;
+      opacity: 0;
+    }
+
+    &.is-selected:after,
+    &.is-selected:hover:after {
+      opacity: 1;
+    }
+
+    &Inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 15px 16px;
+      background: rgba(#4a4a4a, 0.1);
+      border: 1px solid $colorGreyLight;
+      transition: border-color 0.15s ease;
+      overflow: visible;
+
+      .is-selected & {
+        background: $colorGreyLight;
+      }
+
+      // &:hover {
+      //   border: 1px solid $colorGreyLight;
+      // }
+
+      // .is-selected:hover & {
+      //   border: 1px solid $colorGreyLight;
+      // }
+    }
+
+    &Dimensions {
+      display: block;
+    }
+
+    &Name {
+      color: rgba($colorBodyText, 0.5);
+    }
+  }
+}

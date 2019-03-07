@@ -1,0 +1,99 @@
+@import '~sass-svg-uri/svg-uri';
+@import 'variables';
+
+.hierarchySelector {
+  &--objectList {
+    position: relative;
+    counter-reset: object-counter;
+  }
+
+  &--object {
+    user-select: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 5px;
+    background: rgba(#0e0e0f, 0.5)
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="7.86" viewBox="0 0 16 7.86"><path d="M14.86,5.57H1.14a1.15,1.15,0,0,0,0,2.29H14.86a1.15,1.15,0,0,0,0-2.29Zm0-5.57H1.14a1.15,1.15,0,0,0,0,2.29H14.86a1.15,1.15,0,0,0,0-2.29Z" style="fill: #fff"/></svg>'
+      )
+      15px center / 10px auto no-repeat;
+    border-radius: 3px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    font-size: 16px;
+    color: #fff;
+    cursor: move;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:after {
+      content: counter(object-counter);
+      counter-increment: object-counter;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $colorGreyLight;
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    &Info {
+      padding-left: 25px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+    }
+
+    &Type {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &--objectGroup {
+    user-select: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    padding: 10px 10px 10px 60px;
+    margin-bottom: 10px;
+    background: rgba($colorSecondary, 0.05)
+      svg-uri(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="7.86" viewBox="0 0 16 7.86"><path d="M14.86,5.57H1.14a1.15,1.15,0,0,0,0,2.29H14.86a1.15,1.15,0,0,0,0-2.29Zm0-5.57H1.14a1.15,1.15,0,0,0,0,2.29H14.86a1.15,1.15,0,0,0,0-2.29Z" style="fill: #2a2877"/></svg>'
+      )
+      20px center / 16px 8px no-repeat;
+    border: 1px solid rgba($colorSecondary, 0.5);
+    border-radius: 3px;
+    box-shadow: 1px 1px 25px 0 rgba($colorSecondary, 0);
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    font-size: 16px;
+    color: $colorSecondary;
+    cursor: move;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 25px 0 rgba($colorSecondary, 0.1);
+      border-color: rgba($colorSecondary, 1);
+    }
+  }
+}
+
+.sortableHelper {
+  z-index: 9999;
+  cursor: move;
+}

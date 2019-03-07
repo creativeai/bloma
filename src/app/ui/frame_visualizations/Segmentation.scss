@@ -1,0 +1,90 @@
+
+.segmentationVisualization {
+  position: absolute;
+
+  $n0Color: red;
+  $n1Color: adjust_hue(red, 30);
+  $n2Color: adjust_hue(red, 60);
+  $n3Color: adjust_hue(red, 90);
+  $n4Color: adjust_hue(red, 120);
+  $n5Color: adjust_hue(red, 150);
+  $n6Color: adjust_hue(red, 180);
+  $n7Color: adjust_hue(red, 210);
+  $n8Color: adjust_hue(red, 240);
+  $n9Color: adjust_hue(red, 270);
+
+  .segmentationVisualization--poly {
+    &.n0 {
+      stroke: $n0Color;
+      fill: rgba($n0Color, 0.25);
+    }
+    &.n1 {
+      stroke: $n1Color;
+      fill: rgba($n1Color, 0.25);
+    }
+    &.n2 {
+      stroke: $n2Color;
+      fill: rgba($n2Color, 0.25);
+    }
+    &.n3 {
+      stroke: $n3Color;
+      fill: rgba($n3Color, 0.25);
+    }
+    &.n4 {
+      stroke: $n4Color;
+      fill: rgba($n4Color, 0.25);
+    }
+    &.n5 {
+      stroke: $n5Color;
+      fill: rgba($n5Color, 0.25);
+    }
+    &.n6 {
+      stroke: $n6Color;
+      fill: rgba($n6Color, 0.25);
+    }
+    &.n7 {
+      stroke: $n7Color;
+      fill: rgba($n7Color, 0.25);
+    }
+    &.n8 {
+      stroke: $n8Color;
+      fill: rgba($n8Color, 0.25);
+    }
+    &.n9 {
+      stroke: $n9Color;
+      fill: rgba($n9Color, 0.25);
+    }
+  }
+  .segmentationVisualization--center {
+    &.n0 {
+      fill: $n0Color;
+    }
+    &.n1 {
+      fill: $n1Color;
+    }
+    &.n2 {
+      fill: $n2Color;
+    }
+    &.n3 {
+      fill: $n3Color;
+    }
+    &.n4 {
+      fill: $n4Color;
+    }
+    &.n5 {
+      fill: $n5Color;
+    }
+    &.n6 {
+      fill: $n6Color;
+    }
+    &.n7 {
+      fill: $n7Color;
+    }
+    &.n8 {
+      fill: $n8Color;
+    }
+    &.n9 {
+      fill: $n9Color;
+    }
+  }
+}
