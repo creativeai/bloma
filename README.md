@@ -20,7 +20,7 @@ Now you can run blōma locally:
 yarn dev
 ```
 
-This starts a [webpack dev server](https://webpack.js.org/configuration/dev-server/) in port 8080. You can go run bloma by opening [http://localhost:8080] in a web browser.
+This starts a [webpack dev server](https://webpack.js.org/configuration/dev-server/) in port 8080. You can go run bloma by opening [http://localhost:8080](http://localhost:8080) in a web browser.
 
 To make a production build of blōma:
 
@@ -101,4 +101,4 @@ Taking the included "Demo" workflow as an example, based on the order of transfo
 
 # License
 
-See [LICENSE.md]
+See [LICENSE.md](LICENSE.md)
